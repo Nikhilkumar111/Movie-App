@@ -23,7 +23,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.set("trust proxy", 1); // necessary when using proxies like Heroku
+
 
 // API routes
 app.use("/api/v1/users", userRoutes);
