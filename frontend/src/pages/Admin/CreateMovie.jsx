@@ -122,9 +122,9 @@ const CreateMovie = () => {
   };
 
   return (
-    <div className="container flex justify-center items-center mt-4">
+    <div className="container flex justify-center items-center mt-4 m-25">
       <form>
-        <p className="text-green-200 w-[50rem] text-2xl mb-4">Create Movie</p>
+        <p className="text-blue-300 w-[50rem] text-2xl mb-4 ">Create Movie</p>
         <div className="mb-4">
           <label className="block">
             Name:

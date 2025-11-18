@@ -5,50 +5,47 @@ const AdminMoviesList = () => {
   const { data: movies } = useGetAllMoviesQuery();
 
   return (
-    <div className="container mx-[9rem]">
-      <div className="flex flex-col md:flex-row">
-        <div className="p-3">
-          <div className="ml-[2rem] text-xl font-bold h-12">
-            All Movies ({movies?.length})
-          </div>
+    <div className="container mx-auto py-10 px-5 md:px-20">
+      <div className="flex flex-col items-center">
+        {/* Title */}
+        <h1 className="text-3xl font-bold text-gray-100 mb-8">
+          All Movies <span className="text-teal-400">({movies?.length || 0})</span>
+        </h1>
 
-          <div className="flex flex-wrap justify-around items-center p-[2rem]">
-            {movies?.map((movie) => (
-              <Link
-                key={movie._id}
-                to={`/admin/movies/update/${movie._id}`}
-                className="block mb-4 overflow-hidden"
-              >
-                <div className="flex">
-                  <div
-                    key={movie._id}
-                    className="max-w-sm  m-[2rem] rounded overflow-hidden shadow-lg"
-                  >
-                    <img
-                      src={movie.image}
-                      alt={movie.name}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="px-6 py-4 border border-gray-400">
-                      <div className="font-bold text-xl mb-2">{movie.name}</div>
-                    </div>
-
-                    <p className="text-gray-700 text-base">{movie.detail}</p>
-
-                    <div className="mt-[2rem] mb-[1rem]">
-                      <Link
-                        to={`/admin/movies/update/${movie._id}`}
-                        className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded"
-                      >
-                        Update Movie
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Movie Cards */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {movies?.map((movie) => (
+            <div
+              key={movie._id}
+              className="bg-gray-800 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-all overflow-hidden flex flex-col border border-gray-700"
+            >
+              <img
+                src={movie.image}
+                alt={movie.name}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h2 className="font-bold text-xl text-white">{movie.name}</h2>
+                <p className="text-gray-300 text-sm mt-2 line-clamp-3">
+                  {movie.detail}
+                </p>
+              </div>
+              <div className="p-4 mt-auto">
+                <Link
+                  to={`/admin/movies/update/${movie._id}`}
+                  className="w-full inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold text-center py-2 rounded transition-all"
+                >
+                  Update Movie
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* If No Movies Found */}
+        {movies?.length === 0 && (
+          <p className="text-gray-400 italic mt-8">No movies available</p>
+        )}
       </div>
     </div>
   );

@@ -94,7 +94,7 @@ const AllMovies = () => {
             <section className="absolute -bottom-[5rem]">
               <input
                 type="text"
-                className="w-[100%] h-[5rem] border px-10 outline-none rounded"
+                className="w-[100%] h-[5rem] border px-10 outline-none rounded text-red-800"
                 placeholder="Search Movie"
                 value={moviesFilter.searchTerm}
                 onChange={handleSearchChange}
@@ -140,7 +140,7 @@ const AllMovies = () => {
             </section>
           </div>
 
-          <section className="mt-[10rem] w-screen flex justify-center items-center flex-wrap">
+          <section className="mt-[10rem] w-screen flex justify-center items-center flex-wrap text-white">
             {filteredMovies?.map((movie) => (
               <MovieCard key={movie._id} movie={movie} />
             ))}

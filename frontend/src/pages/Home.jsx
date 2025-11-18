@@ -1,12 +1,12 @@
 import Header from "./Movies/Header";
-import MoviesContainerPage from "./Movies/MovieContainerPage";
+import MoviesContainerPage from "./Movies/MoviesContainerPage";
 
 const Home = () => {
   return (
     <>
       <Header />
 
-      <section className="mt-[10rem]">
+      <section className="mt-40">
         <MoviesContainerPage />
       </section>
     </>

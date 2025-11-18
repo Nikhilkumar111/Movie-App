@@ -34,7 +34,7 @@ const Main = () => {
 
  return (
     <div>
-      <section className="flex justify-around">
+      <section className="flex justify-around m-8 p-5">
         <div className="ml-[14rem] mt-10">
           <div className="-translate-x-4 flex">
             <SecondaryCard
